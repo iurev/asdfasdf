@@ -1,8 +1,8 @@
 Rails.application.routes.draw do
-  # get "articles/index"
-  # get "articles/show"
-  resources :articles, only: [:show, :index]
-  resources :comments, only: [:create]
+  resources :articles, only: [:show, :index] do
+    resources :comments, only: :index
+  end
+  resources :comments, only: :create
   # Define your application routes per the DSL in https://guides.rubyonrails.org/routing.html
 
   # Reveal health status on /up that returns 200 if the app boots with no exceptions, otherwise 500.
